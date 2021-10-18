@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context=".LoginActivity">
+    tools:context=".RegistrationActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="96dp"
         android:src="@drawable/logo_utama"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,20 +33,49 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPasswordRegist"
         android:layout_width="335dp"
         android:layout_height="40dp"
-        android:inputType="textPassword"
-        android:shadowColor="@color/black"
         android:background="@drawable/bg_edit_text"
-        android:paddingStart="15dp"
         android:hint="password"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:shadowColor="@color/black"
         android:textColor="@color/white"
         android:textColorHint="#95FDFBFB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/etConfirmPasword"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_edit_text"
+        android:hint="confirm password"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:shadowColor="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="#95FDFBFB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvConfirm" />
+
+    <TextView
+        android:id="@+id/tvConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/concert_one"
+        android:text="Confirm Password"
+        android:textColor="#FAFAFA"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordRegist" />
 
     <TextView
         android:id="@+id/textView2"
@@ -60,18 +89,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailRegist" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etEmailRegist"
         android:layout_width="335dp"
         android:layout_height="40dp"
+        android:background="@drawable/bg_edit_text"
+        android:hint="teguhap@ex.com"
+        android:inputType="textEmailAddress"
         android:paddingStart="15dp"
         android:shadowColor="@color/black"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/bg_edit_text"
         android:textColor="@color/white"
-        android:hint="teguhap@ex.com"
         android:textColorHint="#95FDFBFB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,33 +108,15 @@
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegist"
         android:layout_width="335dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:background = "@drawable/bg_button"
+        android:background="@drawable/bg_button"
         android:fontFamily="@font/concert_one"
-        android:text="LOGIN"
+        android:layout_marginTop="50dp"
+        android:text="Sign In"
         android:textColor="#689F38"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-    <TextView
-        android:id="@+id/tvRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/concert_one"
-        android:text="@string/register"
-        android:clickable="true"
-        android:textColor="#FAFAFA"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        android:focusable="true" />
-
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPasword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
