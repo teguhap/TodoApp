@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.teguhap.taptodo.databinding.ActivityLoginBinding
+import java.security.PermissionCollection
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         window.statusBarColor = getColor(R.color.utama)
+
 
         binding.apply {
             tvRegister.setOnClickListener{
