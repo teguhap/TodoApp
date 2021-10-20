@@ -8,4 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="utama">#50DA1E</color>
+
+
+<!-- Gradient Color App   -->
+    <color name="start_hijau_gradient">#2BBD13</color>
+    <color name="end_hijau_gradient">#5CFF42</color>
+    <color name="start_merah_gradient">#E20B0B</color>
+    <color name="end_merah_gradient">#EEB2B2</color>
+    <color name="start_biru_gradient">#2252FE</color>
+    <color name="end_biru_gradient">#8CB3FF</color>
+    <color name="start_utama_gradient">#A7DB42</color>
+    <color name="end_utama_gradient">#77B41B</color>
 </resources>

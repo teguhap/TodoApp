@@ -22,9 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         val loader = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
-        window.statusBarColor = getColor(R.color.utama)
+        window.statusBarColor = getColor(R.color.start_utama_gradient)
 
 
         binding.apply {
