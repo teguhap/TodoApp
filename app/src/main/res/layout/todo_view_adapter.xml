@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="24dp"
+    android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/ivItemCategory"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_book_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/item" />
+
+    <TextView
+        android:id="@+id/tvTitleTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Title"
+        android:layout_marginStart="20dp"
+        android:textColor="#7E7E7E"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/ivItemCategory"
+        app:layout_constraintTop_toTopOf="@+id/ivItemCategory" />
+
+    <TextView
+        android:id="@+id/tvDescTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Descreption"
+        android:textColor="#C4C4C4"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivItemCategory"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleTodo" />
+
+    <CheckBox
+        android:id="@+id/cbDone"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toEndOf="@+id/tvDescTodo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

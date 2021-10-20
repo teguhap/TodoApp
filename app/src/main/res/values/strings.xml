@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TAP TODO</string>
     <string name="register"><u>Register</u></string>
+    <string name="item">item</string>
 </resources>

@@ -89,7 +89,7 @@
         android:layout_width="360dp"
         android:layout_height="107dp"
         android:layout_marginTop="30dp"
-        android:background="#0FAFAFAF"
+        android:background="#EFFEED"
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:background="#EFFEED"
                 android:padding="10dp">
 
                 <ImageView
@@ -116,7 +117,7 @@
                     android:layout_marginStart="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_book" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -125,7 +126,7 @@
                     android:layout_marginStart="24dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_belanja" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -134,7 +135,7 @@
                     android:layout_marginStart="24dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_food" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -143,7 +144,7 @@
                     android:layout_marginStart="24dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_sport" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -152,7 +153,7 @@
                     android:layout_marginStart="24dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_do" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -161,7 +162,7 @@
                     android:layout_marginStart="24dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/ic_item_book4x" />
+                    android:src="@drawable/item_other" />
 
             </LinearLayout>
 
@@ -185,7 +186,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:background="#EFFEED"
+            android:padding="24dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -250,9 +252,37 @@
                     tools:ignore="SmallSp" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:layout_marginTop="20dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/start_utama_gradient"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTodoToday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvTomorrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tomorrow"
+                android:layout_marginTop="20dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/start_utama_gradient"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTodoTomorrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
