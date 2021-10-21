@@ -2,6 +2,7 @@ package com.teguhap.taptodo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.teguhap.taptodo.adapter.AdapterTodoListView
@@ -39,13 +40,22 @@ class HomeActivity : AppCompatActivity() {
             rvTodoTomorrow.layoutManager = LinearLayoutManager(this@HomeActivity)
 
             btnBook.setOnClickListener {
-
-
-
+                btmSheet.apply {
+                    setContentView(R.layout.add_todo_sheet)
+                    setCanceledOnTouchOutside(true)
+                    show()
+                }
             }
 
+            btnShop.setOnClickListener {
 
+                btmSheet.apply {
+                    setContentView(R.layout.add_todo_sheet)
+                    setCanceledOnTouchOutside(true)
+                    show()
+                }
 
+            }
 
 
         }

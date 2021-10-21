@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_btm_sheet"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/ivItemAddTodo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -47,6 +49,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
+                android:inputType="text"
                 android:background="@drawable/bg_edit_text_add"
                 android:hint="Todo?"
                 android:paddingStart="15dp"
@@ -87,6 +90,7 @@
                 android:id="@+id/etAddDate"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
+                android:inputType="date"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:focusable="false"
@@ -109,9 +113,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 >
 
+                <RadioGroup
+                    android:id="@+id/rgPriority"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
                     <RadioButton
                         android:id="@+id/rbNormal"
                         android:layout_width="wrap_content"
@@ -142,6 +152,9 @@
                         android:fontFamily="@font/quicksand_medium"
                         android:textSize="12sp"
                         android:textColor="#7A7A7A"/>
+
+                </RadioGroup>
+
             </LinearLayout>
             
             
