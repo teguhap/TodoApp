@@ -2,20 +2,16 @@ package com.teguhap.taptodo.adapter
 
 import android.content.Context
 import android.graphics.Paint
-import android.text.style.StrikethroughSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.teguhap.taptodo.HomeActivity
 import com.teguhap.taptodo.R
 import com.teguhap.taptodo.data.TodoList
-import java.security.AccessController.getContext
 
 class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<AdapterTodoListView.HolderViewAdapter>() {
 
@@ -42,18 +38,18 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
     override fun onBindViewHolder(holder: HolderViewAdapter, position: Int) {
         holder.itemView.apply {
             val title = findViewById<TextView>(R.id.tvTitleTodo)
-            val description = findViewById<TextView>(R.id.tvDescTodo)
+            val date = findViewById<TextView>(R.id.tvDateTodo)
             val itemCategory =  findViewById<ImageView>(R.id.ivItemCategory)
             val cb = findViewById<CheckBox>(R.id.cbDone)
 
             title.text = list[position].title.toString()
-            description.text = list[position].description.toString()
+            date.text = list[position].date.toString()
             itemCategory.setImageResource(list[position].background)
             cb.isChecked = list[position].isChecked
 
-            strikeTrough(title,description,itemCategory,list[position].isChecked,context)
+            strikeTrough(title,date,itemCategory,list[position].isChecked,context)
             cb.setOnCheckedChangeListener{_,isChecked ->
-                strikeTrough(title,description,itemCategory,isChecked,context)
+                strikeTrough(title,date,itemCategory,isChecked,context)
 
             }
 

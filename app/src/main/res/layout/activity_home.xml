@@ -110,7 +110,7 @@
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/itBook"
+                    android:id="@+id/btnBook"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -120,6 +120,7 @@
                     android:src="@drawable/item_book" />
 
                 <ImageView
+                    android:id="@+id/btnShop"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -129,6 +130,7 @@
                     android:src="@drawable/item_belanja" />
 
                 <ImageView
+                    android:id="@+id/btnFood"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -138,6 +140,7 @@
                     android:src="@drawable/item_food" />
 
                 <ImageView
+                    android:id="@+id/btnSport"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -147,6 +150,7 @@
                     android:src="@drawable/item_sport" />
 
                 <ImageView
+                    android:id="@+id/btnDo"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -156,6 +160,7 @@
                     android:src="@drawable/item_do" />
 
                 <ImageView
+                    android:id="@+id/btnOther"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -252,35 +257,53 @@
                     tools:ignore="SmallSp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvToday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Today"
-                android:layout_marginTop="20dp"
-                android:elevation="2dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:textColor="@color/start_utama_gradient"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTodoToday"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tvTomorrow"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tomorrow"
-                android:layout_marginTop="20dp"
-                android:elevation="2dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:textColor="@color/start_utama_gradient"/>
+                android:scrollbars="none"
+                android:layout_marginTop="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/tvToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="@color/start_utama_gradient"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTodoTomorrow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTodoToday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvTomorrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tomorrow"
+                        android:layout_marginTop="10dp"
+                        android:elevation="2dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="@color/start_utama_gradient"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTodoTomorrow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
 
         </LinearLayout>
 

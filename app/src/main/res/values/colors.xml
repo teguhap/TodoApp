@@ -20,4 +20,5 @@
     <color name="end_biru_gradient">#8CB3FF</color>
     <color name="start_utama_gradient">#A7DB42</color>
     <color name="end_utama_gradient">#77B41B</color>
+    <color name="background_cardview">#EFFEED</color>
 </resources>
