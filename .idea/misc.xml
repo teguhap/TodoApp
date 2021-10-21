@@ -19,12 +19,14 @@
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/drawable/ic_fitness_centre.xml" value="0.2703125" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/drawable/shape_radius.xml" value="0.2703125" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/activity_home.xml" value="0.31097560975609756" />
-        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
-        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.176" />
+        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/add_todo_sheet.xml" value="0.264" />
+        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.2" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/bottom_sheet_layout2.xml" value="0.8" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/btm_sheet_layout.xml" value="0.22592592592592592" />
+        <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/btmsheet_layout.xml" value="0.264" />
         <entry key="..\:/Users/Selly Nursyifa/AndroidStudioProjects/TodoApp/app/src/main/res/layout/todo_view_adapter.xml" value="0.5756097560975609" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TAPTODO/app/src/main/res/drawable/bg_button.xml" value="0.2203125" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TAPTODO/app/src/main/res/drawable/bg_edit_text.xml" value="0.2203125" />

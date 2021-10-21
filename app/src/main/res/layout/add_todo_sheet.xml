@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_cardview"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/item_book" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Title"
+                android:textColor="@color/end_utama_gradient"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etAddTitle"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_edit_text_add"
+                android:hint="Todo?"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/description"
+                android:textColor="@color/end_utama_gradient"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etAddDesc"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_edit_text_add"
+                android:hint="@string/description"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/tanggal"
+                android:textColor="@color/end_utama_gradient"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etAddDate"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:focusable="false"
+                android:background="@drawable/bg_edit_text_add"
+                android:hint="@string/format_date"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/priority"
+                android:textColor="@color/end_utama_gradient"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                >
+
+                    <RadioButton
+                        android:id="@+id/rbNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="@string/normal"
+                        android:checked="true"
+                        android:buttonTint="@color/end_utama_gradient"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:textSize="12sp"
+                        android:textColor="#7A7A7A"/>
+                    <RadioButton
+                        android:id="@+id/rbMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="@string/medium"
+                        android:buttonTint="@color/end_utama_gradient"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:textSize="12sp"
+                        android:textColor="#7A7A7A"/>
+                    <RadioButton
+                        android:id="@+id/rbHigh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:buttonTint="@color/end_utama_gradient"
+                        android:text="@string/high"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:textSize="12sp"
+                        android:textColor="#7A7A7A"/>
+            </LinearLayout>
+            
+            
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddTodo"
+                android:layout_width="321dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="Add"
+                android:textColor="@color/background_cardview"
+                android:fontFamily="@font/quicksand_medium"
+                android:background="@drawable/bg_button_add"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+
+        </LinearLayout>
+        
+        
+        
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
