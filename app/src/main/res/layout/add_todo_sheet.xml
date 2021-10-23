@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="18dp"
     android:background="@drawable/bg_btm_sheet"
     >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background_cardview"
-            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,152 +31,198 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:src="@drawable/item_book" />
+                android:layout_marginTop="10dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/item_book"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="Title"
                 android:textColor="@color/end_utama_gradient"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivItemAddTodo" />
 
             <EditText
                 android:id="@+id/etAddTitle"
-                android:layout_width="350dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:inputType="text"
+                android:layout_marginTop="4dp"
+                android:autofillHints="Title"
                 android:background="@drawable/bg_edit_text_add"
-                android:hint="Todo?"
+                android:hint="@string/todo"
+                android:inputType="text"
                 android:paddingStart="15dp"
-                android:paddingEnd="15dp" />
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="@string/description"
                 android:textColor="@color/end_utama_gradient"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddTitle" />
 
             <EditText
                 android:id="@+id/etAddDesc"
-                android:layout_width="350dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edit_text_add"
                 android:hint="@string/description"
                 android:paddingStart="15dp"
-                android:paddingEnd="15dp" />
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="@string/tanggal"
                 android:textColor="@color/end_utama_gradient"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddDesc" />
 
             <EditText
                 android:id="@+id/etAddDate"
-                android:layout_width="350dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:inputType="date"
                 android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:focusable="false"
+                android:clickable="true"
                 android:background="@drawable/bg_edit_text_add"
+                android:focusable="true"
                 android:hint="@string/format_date"
+                android:inputType="date"
                 android:paddingStart="15dp"
-                android:paddingEnd="15dp" />
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <TextView
+                android:id="@+id/tvPriority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="@string/priority"
                 android:textColor="@color/end_utama_gradient"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddDate" />
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginStart="4dp"
                 android:orientation="horizontal"
-                android:layout_marginStart="25dp"
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPriority">
 
                 <RadioGroup
                     android:id="@+id/rgPriority"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <RadioButton
                         android:id="@+id/rbNormal"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:text="@string/normal"
-                        android:checked="true"
                         android:buttonTint="@color/end_utama_gradient"
+                        android:checked="true"
                         android:fontFamily="@font/quicksand_medium"
-                        android:textSize="12sp"
-                        android:textColor="#7A7A7A"/>
+                        android:text="@string/normal"
+                        android:textColor="#7A7A7A"
+                        android:textSize="12sp" />
+
                     <RadioButton
                         android:id="@+id/rbMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:text="@string/medium"
-                        android:buttonTint="@color/end_utama_gradient"
                         android:layout_marginStart="20dp"
+                        android:buttonTint="@color/end_utama_gradient"
                         android:fontFamily="@font/quicksand_medium"
-                        android:textSize="12sp"
-                        android:textColor="#7A7A7A"/>
+                        android:text="@string/medium"
+                        android:textColor="#7A7A7A"
+                        android:textSize="12sp" />
+
                     <RadioButton
                         android:id="@+id/rbHigh"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:buttonTint="@color/end_utama_gradient"
-                        android:text="@string/high"
                         android:layout_marginStart="20dp"
+                        android:buttonTint="@color/end_utama_gradient"
                         android:fontFamily="@font/quicksand_medium"
-                        android:textSize="12sp"
-                        android:textColor="#7A7A7A"/>
+                        android:text="@string/high"
+                        android:textColor="#7A7A7A"
+                        android:textSize="12sp" />
 
                 </RadioGroup>
 
             </LinearLayout>
-            
-            
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddTodo"
                 android:layout_width="321dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/bg_button_add"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Add"
                 android:textColor="@color/background_cardview"
-                android:fontFamily="@font/quicksand_medium"
-                android:background="@drawable/bg_button_add"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:layout_marginTop="20dp"
-                />
-
-
-        </LinearLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAddTodo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         
         
         
