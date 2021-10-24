@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegist"
         android:layout_width="335dp"
         android:layout_height="40dp"
