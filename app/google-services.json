@@ -2,7 +2,8 @@
   "project_info": {
     "project_number": "718121903304",
     "project_id": "todo-app-226de",
-    "storage_bucket": "todo-app-226de.appspot.com"
+    "storage_bucket": "todo-app-226de.appspot.com",
+
   },
   "client": [
     {

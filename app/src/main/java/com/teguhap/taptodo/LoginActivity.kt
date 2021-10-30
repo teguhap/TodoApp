@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -35,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
             btnLogin.setOnClickListener {
                 val email = etEmail.text.toString().trim()
                 val password = etPassword.text.toString().trim()
+                Log.d("TestLogin","$email,$password")
 
                 if(email.isEmpty()){
                     etEmail.error = "Email is required"

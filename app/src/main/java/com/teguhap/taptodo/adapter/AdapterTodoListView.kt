@@ -44,7 +44,7 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
 
             title.text = list[position].title.toString()
             date.text = list[position].date.toString()
-            itemCategory.setImageResource(list[position].background)
+            itemCategory.setImageResource(list[position].priorityItem)
             cb.isChecked = list[position].isChecked
 
             strikeTrough(title,date,itemCategory,list[position].isChecked,context)
