@@ -57,6 +57,7 @@ class HomeActivity : AppCompatActivity() {
         val date = calendar.get(Calendar.DATE)
         val month =  calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault())
         val year = calendar.get(Calendar.YEAR)
+        val currentMonth = calendar.get(Calendar.MONTH)
         val days = arrayOf("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY")
         val currentDay = days[calendar.get(Calendar.DAY_OF_WEEK)-1]
 
@@ -94,7 +95,13 @@ class HomeActivity : AppCompatActivity() {
                         for(userTodoSnapshot in snapshot.children){
                             val userTodo = userTodoSnapshot.getValue(TodoList::class.java)
                             if(!todoListToday.contains(userTodo)){
-                                todoListToday.add(userTodo!!)
+                                if(userTodo?.date=="$date-$currentMonth-$year"){
+                                    todoListToday.add(userTodo)
+                                }else{
+                                    if(!todoListTomorrow.contains(userTodo)){
+                                    todoListTomorrow.add(userTodo!!)}
+                                }
+
                             }
 
                         }
