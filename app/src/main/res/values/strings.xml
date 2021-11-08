@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TAP TODO</string>
+    <string name="register"><u>Register</u></string>
+    <string name="item">item</string>
+    <string name="normal">Normal</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+    <string name="description">Description</string>
+    <string name="tanggal">Date</string>
+    <string name="format_date">dd/mm/yy</string>
+    <string name="priority">Priority</string>
+    <string name="todo">Todo?</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.teguhap.taptodo
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
+
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         window.statusBarColor = getColor(R.color.utama)
@@ -24,8 +29,10 @@ class MainActivity : AppCompatActivity() {
             start()
         }
 
-        Handler().postDelayed({Intent(this,LoginActivity::class.java).also {
+        Handler().postDelayed({
+            Intent(this,LoginActivity::class.java).also {
             startActivity(it)
+                finish()
         }},2000L)
 
     }

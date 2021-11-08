@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="14dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivItemCategory"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/item"
+        android:src="@drawable/ic_book_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleTodo"
+        />
+
+    <TextView
+        android:id="@+id/tvTitleTodo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Login Mobile Legendafakafkjafkjafkajfkaf dapet skin gratis"
+        android:textColor="#7E7E7E"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbDone"
+        app:layout_constraintStart_toEndOf="@+id/ivItemCategory"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDateTodo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="29-10-2021"
+        android:textColor="#C4C4C4"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cbDone"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleTodo"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleTodo" />
+
+    <CheckBox
+        android:id="@+id/cbDone"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/custom_checkbox"
+        android:button="@null"
+        android:gravity="center"
+        app:buttonCompat="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleTodo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
