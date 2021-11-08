@@ -3,9 +3,11 @@ package com.teguhap.taptodo
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,10 +19,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.teguhap.taptodo.adapter.AdapterTodoListView
+import com.teguhap.taptodo.adapter.AdapterTodoMissed
 import com.teguhap.taptodo.data.TodoList
 import com.teguhap.taptodo.data.TodoListDatabase
 import com.teguhap.taptodo.databinding.ActivityHomeBinding
 import java.util.*
+import java.text.SimpleDateFormat
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -51,9 +56,11 @@ class HomeActivity : AppCompatActivity() {
 
         val todoListTomorrow = mutableListOf<TodoList>(
         )
+        val todoListMissed = mutableListOf<TodoList>(
+        )
 
         //Calendar
-        val calendar = Calendar.getInstance(TimeZone.getDefault())
+        val calendar = Calendar.getInstance()
         val date = calendar.get(Calendar.DATE)
         val month =  calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault())
         val year = calendar.get(Calendar.YEAR)
@@ -87,19 +94,72 @@ class HomeActivity : AppCompatActivity() {
             rvTodoToday.setHasFixedSize(true)
             rvTodoTomorrow.layoutManager = LinearLayoutManager(this@HomeActivity)
             rvTodoTomorrow.setHasFixedSize(true)
+            rvTodoMissed.adapter = AdapterTodoMissed(todoListMissed)
+            rvTodoMissed.layoutManager = LinearLayoutManager(this@HomeActivity)
+            rvTodoMissed.setHasFixedSize(true)
 
             reference.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
+
                     if(snapshot.exists()){
                         Log.d("TodoTest","snapshot exsit")
                         for(userTodoSnapshot in snapshot.children){
                             val userTodo = userTodoSnapshot.getValue(TodoList::class.java)
+                            val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
+                            val bulan = calendar.get(Calendar.MONTH)
+                            var dateForDatabase = ""
+                            var monthForDatabase = ""
+                            var dateFormated2 = "$tanggal"
+                            var monthFormated2 = "${bulan+1}"
+                            for(i in 0..1){
+                                dateForDatabase += userTodo?.date?.get(i).toString()
+                            }
+                            for(i in 3..4){
+                                monthForDatabase += userTodo?.date?.get(i).toString()
+                            }
+
+
                             if(!todoListToday.contains(userTodo)){
-                                if(userTodo?.date=="$date-$currentMonth-$year"){
-                                    todoListToday.add(userTodo)
+                                if(tanggal < 10){
+                                    dateFormated2 = "0$tanggal"
+                                }
+                                if(bulan < 9){
+                                    monthFormated2 = "0${bulan+1}"
+                                }
+                                val dateNormal = if(dateFormated2[0]=='0'){
+                                    "$tanggal"
                                 }else{
+                                    dateFormated2
+                                }
+                                val monthNormal = if(monthFormated2[0]=='0'){
+                                    "${bulan+1}"
+                                }else{
+                                   monthFormated2
+                                }
+                                val dateNormal2 = if(dateForDatabase[0]=='0'){
+                                    "${dateForDatabase[1]}"
+                                }else{
+                                    dateForDatabase
+                                }
+                                val monthNormal2 = if(monthForDatabase[0]=='0'){
+                                    "${monthForDatabase[1]}"
+                                }else{
+                                    monthForDatabase
+                                }
+
+                                Log.d("Tanggal","$dateForDatabase,$monthForDatabase")
+                                Log.d("Tanggal","$dateNormal2 > $dateNormal --- $monthNormal2 ==$monthNormal")
+
+
+                                if(userTodo?.date =="$dateFormated2-$monthFormated2-$year"){
+                                    todoListToday.add(userTodo)
+                                }else if(dateNormal2.toInt() > dateNormal.toInt() && monthNormal2.toInt() == monthNormal.toInt() || dateNormal2.toInt() < dateNormal.toInt() && monthNormal2.toInt() > monthNormal.toInt()
+                                    || dateNormal2.toInt() > dateNormal.toInt() && monthNormal2.toInt() > monthNormal.toInt()) {
                                     if(!todoListTomorrow.contains(userTodo)){
                                     todoListTomorrow.add(userTodo!!)}
+                                }else{
+                                    if(!todoListMissed.contains(userTodo)){
+                                    todoListMissed.add(userTodo!!)}
                                 }
 
                             }
@@ -109,12 +169,30 @@ class HomeActivity : AppCompatActivity() {
                     }
                     rvTodoToday.adapter = adapterToday
                     rvTodoTomorrow.adapter = AdapterTodoListView(todoListTomorrow)
+                    rvTodoMissed.adapter = AdapterTodoMissed(todoListMissed)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
             })
+
+            btnSetting.setOnClickListener {
+                val popUpMenu = PopupMenu(this@HomeActivity,btnSetting)
+                popUpMenu.menuInflater.inflate(R.menu.pop_up_setting,popUpMenu.menu)
+                popUpMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener{
+                    override fun onMenuItemClick(item: MenuItem?): Boolean {
+                        when(item!!.itemId){
+                            R.id.itLogout -> Intent(this@HomeActivity,LoginActivity::class.java).also {
+                                startActivity(it)
+                                finish()
+                            }
+                        }
+                        return true
+                    }
+                })
+                popUpMenu.show()
+            }
 
 
 
@@ -179,12 +257,24 @@ class HomeActivity : AppCompatActivity() {
             }
         }//Tutuo Binding Home Activity
 
-        val tanggal = calendar.get(Calendar.DATE)
+        val simpleDateFormat = SimpleDateFormat("dd-MMM-yyyy")
+        val dateTime = simpleDateFormat.format(calendar.time)
+
+        val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
         val bulan = calendar.get(Calendar.MONTH)
         val tahun= calendar.get(Calendar.YEAR)
+
         etDate.setOnClickListener {
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                etDate.setText("$dayOfMonth-$month-$year")
+                var dateFormated ="" + dayOfMonth
+                var monthFormated = "${month+1}"
+                if(dayOfMonth < 10){
+                    dateFormated = "0$dayOfMonth"
+                }
+                if(month < 9){
+                    monthFormated = "0${month+1}"
+                }
+                etDate.setText("$dateFormated-$monthFormated-$year")
             },tahun,bulan,tanggal)
             datePicker.show()
 
@@ -284,6 +374,7 @@ class HomeActivity : AppCompatActivity() {
             }
             etTitle.text.clear()
             etDesc.text.clear()
+            etDate.text.clear()
             priority.check(R.id.rbNormal)
             etDate.text = null
         }

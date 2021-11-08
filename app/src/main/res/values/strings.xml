@@ -10,4 +10,6 @@
     <string name="format_date">dd/mm/yy</string>
     <string name="priority">Priority</string>
     <string name="todo">Todo?</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
 </resources>
