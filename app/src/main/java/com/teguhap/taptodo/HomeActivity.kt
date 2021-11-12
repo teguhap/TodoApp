@@ -98,11 +98,12 @@ class HomeActivity : AppCompatActivity() {
             rvTodoMissed.layoutManager = LinearLayoutManager(this@HomeActivity)
             rvTodoMissed.setHasFixedSize(true)
 
+            loader.setTitle("Mohon Tunggu")
+            loader.setCanceledOnTouchOutside(false)
+            loader.show()
             reference.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-
                     if(snapshot.exists()){
-                        Log.d("TodoTest","snapshot exsit")
                         for(userTodoSnapshot in snapshot.children){
                             val userTodo = userTodoSnapshot.getValue(TodoList::class.java)
                             val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
@@ -147,10 +148,6 @@ class HomeActivity : AppCompatActivity() {
                                     monthForDatabase
                                 }
 
-                                Log.d("Tanggal","$dateForDatabase,$monthForDatabase")
-                                Log.d("Tanggal","$dateNormal2 > $dateNormal --- $monthNormal2 ==$monthNormal")
-
-
                                 if(userTodo?.date =="$dateFormated2-$monthFormated2-$year"){
                                     todoListToday.add(userTodo)
                                 }else if(dateNormal2.toInt() > dateNormal.toInt() && monthNormal2.toInt() == monthNormal.toInt() || dateNormal2.toInt() < dateNormal.toInt() && monthNormal2.toInt() > monthNormal.toInt()
@@ -170,6 +167,7 @@ class HomeActivity : AppCompatActivity() {
                     rvTodoToday.adapter = adapterToday
                     rvTodoTomorrow.adapter = AdapterTodoListView(todoListTomorrow)
                     rvTodoMissed.adapter = AdapterTodoMissed(todoListMissed)
+                    loader.dismiss()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
