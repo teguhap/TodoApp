@@ -1,5 +1,8 @@
 package com.teguhap.taptodo.adapter
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Paint
 import android.view.LayoutInflater
@@ -8,10 +11,13 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.teguhap.taptodo.R
 import com.teguhap.taptodo.data.TodoList
+import com.teguhap.taptodo.databinding.ActivityHomeBinding.inflate
+import java.util.zip.Inflater
 
 class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<AdapterTodoListView.HolderViewAdapter>() {
 
@@ -35,23 +41,35 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
         }
     }
 
+    @SuppressLint("InflateParams")
     override fun onBindViewHolder(holder: HolderViewAdapter, position: Int) {
         holder.itemView.apply {
             val title = findViewById<TextView>(R.id.tvTitleTodo)
             val date = findViewById<TextView>(R.id.tvDateTodo)
             val itemCategory =  findViewById<ImageView>(R.id.ivItemCategory)
             val cb = findViewById<CheckBox>(R.id.cbDone)
+            val clTodo = findViewById<ConstraintLayout>(R.id.cl_todolist)
+
+            val dialogAlert = AlertDialog.Builder(context)
+            val inflater = LayoutInflater.from(context)
+            val view = inflater.inflate(R.layout.dialogue_alert_todo,null)
+
 
             title.text = list[position].title.toString()
             date.text = list[position].date.toString()
             itemCategory.setImageResource(list[position].priorityItem)
             cb.isChecked = list[position].isChecked
+            clTodo.setOnClickListener {
+                dialogAlert.setCancelable(true)
+                dialogAlert.setView(view)
+                dialogAlert.show()
+            }
 
             strikeTrough(title,date,itemCategory,list[position].isChecked,context)
             cb.setOnCheckedChangeListener{_,isChecked ->
                 strikeTrough(title,date,itemCategory,isChecked,context)
-
             }
+
 
         }
 

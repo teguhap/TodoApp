@@ -66,7 +66,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ivItemAddTodo" />
 
             <EditText
-                android:id="@+id/etAddTitle"
+                android:id="@+id/tvTitleDa"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -94,10 +94,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etAddTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleDa" />
 
             <EditText
-                android:id="@+id/etAddDesc"
+                android:id="@+id/tvDescDa"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -123,10 +123,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etAddDesc" />
+                app:layout_constraintTop_toBottomOf="@+id/tvDescDa" />
 
             <EditText
-                android:id="@+id/etAddDate"
+                android:id="@+id/tvDateDa"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -153,7 +153,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etAddDate" />
+                app:layout_constraintTop_toBottomOf="@+id/tvDateDa" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"

@@ -21,7 +21,6 @@ import com.google.firebase.database.ValueEventListener
 import com.teguhap.taptodo.adapter.AdapterTodoListView
 import com.teguhap.taptodo.adapter.AdapterTodoMissed
 import com.teguhap.taptodo.data.TodoList
-import com.teguhap.taptodo.data.TodoListDatabase
 import com.teguhap.taptodo.databinding.ActivityHomeBinding
 import java.util.*
 import java.text.SimpleDateFormat
@@ -81,9 +80,9 @@ class HomeActivity : AppCompatActivity() {
         val ivItemAddTodo :  ImageView = viewBtmSheet.findViewById(R.id.ivItemAddTodo)
         val btnSubmitAddTodo = viewBtmSheet.findViewById<AppCompatButton>(R.id.btnAddTodo)
         val tvItemCategory = viewBtmSheet.findViewById<TextView>(R.id.tvItemCategory)
-        val etTitle =viewBtmSheet.findViewById<EditText>(R.id.etAddTitle)
-        val etDesc = viewBtmSheet.findViewById<EditText>(R.id.etAddDesc)
-        val etDate = viewBtmSheet.findViewById<EditText>(R.id.etAddDate)
+        val etTitle =viewBtmSheet.findViewById<EditText>(R.id.tvTitleDa)
+        val etDesc = viewBtmSheet.findViewById<EditText>(R.id.tvDescDa)
+        val etDate = viewBtmSheet.findViewById<EditText>(R.id.tvDateDa)
         val priority = viewBtmSheet.findViewById<RadioGroup>(R.id.rgPriority)
         val adapterToday = AdapterTodoListView(todoListToday)
         //Home Layout Component
