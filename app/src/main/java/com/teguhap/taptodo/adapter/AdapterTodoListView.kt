@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.teguhap.taptodo.HomeActivity
 import com.teguhap.taptodo.R
 import com.teguhap.taptodo.data.TodoList
 import com.teguhap.taptodo.databinding.ActivityHomeBinding.inflate
@@ -49,21 +50,10 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
             val itemCategory =  findViewById<ImageView>(R.id.ivItemCategory)
             val cb = findViewById<CheckBox>(R.id.cbDone)
             val clTodo = findViewById<ConstraintLayout>(R.id.cl_todolist)
-
-            val dialogAlert = AlertDialog.Builder(context)
-            val inflater = LayoutInflater.from(context)
-            val view = inflater.inflate(R.layout.dialogue_alert_todo,null)
-
-
             title.text = list[position].title.toString()
             date.text = list[position].date.toString()
             itemCategory.setImageResource(list[position].priorityItem)
             cb.isChecked = list[position].isChecked
-            clTodo.setOnClickListener {
-                dialogAlert.setCancelable(true)
-                dialogAlert.setView(view)
-                dialogAlert.show()
-            }
 
             strikeTrough(title,date,itemCategory,list[position].isChecked,context)
             cb.setOnCheckedChangeListener{_,isChecked ->
