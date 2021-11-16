@@ -12,4 +12,12 @@
     <string name="todo">Todo?</string>
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
+
+    <string-array name="list_category">
+        <item>Studie</item>
+        <item>Food</item>
+        <item>Sport</item>
+        <item>Activity</item>
+        <item>Other</item>
+    </string-array>
 </resources>

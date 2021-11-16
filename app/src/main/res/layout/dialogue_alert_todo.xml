@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
     android:background="#EFFEED">
+
+    <LinearLayout
+        android:id="@+id/clUtama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ivItemAddTodo"
@@ -25,11 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/ivItemAddTodo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView3"
@@ -40,14 +46,10 @@
             android:fontFamily="@font/quicksand_bold"
             android:text="Title"
             android:textColor="@color/end_utama_gradient"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivItemAddTodo" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvTitleDa"
+            android:id="@+id/titleDa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -56,10 +58,22 @@
             android:fontFamily="@font/quicksand_medium"
             android:text="Bermain Mobile Legend"
             android:textColor="#9F9F9F"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/etTitleEdit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_edit_text_add"
+            android:autofillHints="name"
+            android:inputType="text"
+            tools:ignore="LabelFor"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:visibility="gone"
+            />
 
         <TextView
             android:id="@+id/textView4"
@@ -70,14 +84,10 @@
             android:fontFamily="@font/quicksand_bold"
             android:text="@string/description"
             android:textColor="@color/end_utama_gradient"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleDa" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvDescDa"
+            android:id="@+id/descDa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -86,10 +96,21 @@
             android:fontFamily="@font/quicksand_medium"
             android:text="jam 15.00"
             android:textColor="#9F9F9F"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etDescEdit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:background="@drawable/bg_edit_text_add"
+            android:autofillHints="name"
+            android:visibility="gone"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView5"
@@ -100,14 +121,10 @@
             android:fontFamily="@font/quicksand_bold"
             android:text="@string/tanggal"
             android:textColor="@color/end_utama_gradient"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescDa" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvDateDa"
+            android:id="@+id/dateDa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -116,10 +133,23 @@
             android:fontFamily="@font/quicksand_medium"
             android:text="01-01-2021"
             android:textColor="#9F9F9F"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            android:textSize="14sp" />
+        <EditText
+            android:id="@+id/etDateEdit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_edit_text_add"
+            android:hint="@string/format_date"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:autofillHints="name"
+            android:focusable="false"
+            android:inputType="date"
+            android:visibility="gone"
+            tools:ignore="LabelFor" />
+
 
         <TextView
             android:id="@+id/tvPriority"
@@ -130,11 +160,7 @@
             android:fontFamily="@font/quicksand_bold"
             android:text="@string/priority"
             android:textColor="@color/end_utama_gradient"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDateDa" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tvPriorityDa"
@@ -146,55 +172,127 @@
             android:fontFamily="@font/quicksand_medium"
             android:text="Normal"
             android:textColor="#9F9F9F"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPriority" />
+            android:textSize="14sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPriorityDa">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnEditDa"
-            android:layout_width="150dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_button_add"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Edit"
-            android:textColor="@color/background_cardview" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnDeleteDa"
-            android:layout_width="150dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/bg_button_add"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Delete"
-            android:textColor="@color/background_cardview" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnUpdateDa"
+        <RadioGroup
+            android:id="@+id/rgPriorityEdit"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_button_add"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Update"
-            android:textColor="@color/background_cardview"
-            android:visibility="gone" />
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="horizontal">
 
+            <RadioButton
+                android:id="@+id/rbNormalEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:buttonTint="@color/end_utama_gradient"
+                android:checked="true"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/normal"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/rbMediumEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/end_utama_gradient"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/medium"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/rbHighEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/end_utama_gradient"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/high"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvCategoryEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Category"
+            android:visibility="gone"
+            android:textColor="@color/end_utama_gradient"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spCategoryEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:theme="@style/Spinner"
+            android:visibility="gone"
+            android:backgroundTint="@color/start_utama_gradient"
+            android:entries="@array/list_category"/>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEditDa"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_button_add"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Edit"
+                android:textColor="@color/background_cardview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBackDa"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:background="@drawable/bg_button_add"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Back"
+                android:textColor="@color/background_cardview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDeleteDa"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/bg_button_add"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Delete"
+                android:textColor="@color/background_cardview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnUpdateDa"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_button_add"
+                android:fontFamily="@font/quicksand_medium"
+                android:layout_marginStart="20dp"
+                android:text="Update"
+                android:textColor="@color/background_cardview"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -205,5 +303,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/clUtama" />
 </androidx.constraintlayout.widget.ConstraintLayout>

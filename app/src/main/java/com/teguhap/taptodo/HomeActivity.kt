@@ -80,11 +80,14 @@ class HomeActivity : AppCompatActivity() {
         val ivItemAddTodo :  ImageView = viewBtmSheet.findViewById(R.id.ivItemAddTodo)
         val btnSubmitAddTodo = viewBtmSheet.findViewById<AppCompatButton>(R.id.btnAddTodo)
         val tvItemCategory = viewBtmSheet.findViewById<TextView>(R.id.tvItemCategory)
-        val etTitle =viewBtmSheet.findViewById<EditText>(R.id.tvTitleDa)
-        val etDesc = viewBtmSheet.findViewById<EditText>(R.id.tvDescDa)
-        val etDate = viewBtmSheet.findViewById<EditText>(R.id.tvDateDa)
+        val etTitle =viewBtmSheet.findViewById<EditText>(R.id.etTitleSheet)
+        val etDesc = viewBtmSheet.findViewById<EditText>(R.id.etDescSheet)
+        val etDate = viewBtmSheet.findViewById<EditText>(R.id.dateDa)
         val priority = viewBtmSheet.findViewById<RadioGroup>(R.id.rgPriority)
         val adapterToday = AdapterTodoListView(todoListToday)
+
+        //Dialog
+
         //Home Layout Component
         binding.apply {
             rvTodoToday.adapter = adapterToday
@@ -376,7 +379,18 @@ class HomeActivity : AppCompatActivity() {
             etDate.text = null
         }
 
+        fun addTodoList(){
+
+        }
+
     }
+
+
+
+
+
+
+
 
 
 
