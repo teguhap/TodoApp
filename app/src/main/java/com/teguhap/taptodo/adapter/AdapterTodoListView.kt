@@ -76,6 +76,30 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
                 val rgPriority = dialog.findViewById<RadioGroup>(R.id.rgPriorityEdit)
                 val spCategory = dialog.findViewById<Spinner>(R.id.spCategoryEdit)
 
+                titleDa.text = list[position].title.toString()
+                if(list[position].desc.toString().isBlank()) {
+                    descDa.text = "-"
+                }else{
+                    descDa.text = list[position].desc.toString()
+                }
+                priorityDa.text = list[position].priority.toString()
+                dateDa.text = list[position].date.toString()
+
+                titleEdit.setText(list[position].title.toString())
+                if(list[position].desc.toString().isBlank()) {
+                    descEdit.setText("-")
+                }else{
+                    descEdit.setText(list[position].desc.toString())
+                }
+
+                when(list[position].priority.toString()) {
+                   "Normal" -> rgPriority.check(R.id.rbNormalEdit)
+                   "Medium" -> rgPriority.check(R.id.rbMediumEdit)
+                    else -> rgPriority.check(R.id.rbHighEdit)
+                }
+
+                dateEdit.setText(list[position].date.toString())
+
                 dialog.show()
                 btnEdit.setOnClickListener {
                     titleDa.visibility = View.GONE
