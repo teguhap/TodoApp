@@ -1,6 +1,7 @@
 package com.teguhap.taptodo.adapter
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Paint
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.teguhap.taptodo.R
 import com.teguhap.taptodo.data.TodoList
+import java.util.*
 
 class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<AdapterTodoListView.HolderViewAdapter>() {
 
@@ -36,7 +38,7 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
         }
     }
 
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams", "SetTextI18n")
     override fun onBindViewHolder(holder: HolderViewAdapter, position: Int) {
         holder.itemView.apply {
             val title = findViewById<TextView>(R.id.tvTitleTodo)
@@ -75,6 +77,8 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
                 val tvCategory = dialog.findViewById<TextView>(R.id.tvCategoryEdit)
                 val rgPriority = dialog.findViewById<RadioGroup>(R.id.rgPriorityEdit)
                 val spCategory = dialog.findViewById<Spinner>(R.id.spCategoryEdit)
+                val itImageCategory = dialog.findViewById<TextView>(R.id.tvItemCategoryEdit)
+                val ivImageCategory = dialog.findViewById<ImageView>(R.id.ivItemEditTodo)
 
                 titleDa.text = list[position].title.toString()
                 if(list[position].desc.toString().isBlank()) {
@@ -91,13 +95,13 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
                 }else{
                     descEdit.setText(list[position].desc.toString())
                 }
-
+                //PriorityData
                 when(list[position].priority.toString()) {
                    "Normal" -> rgPriority.check(R.id.rbNormalEdit)
                    "Medium" -> rgPriority.check(R.id.rbMediumEdit)
                     else -> rgPriority.check(R.id.rbHighEdit)
                 }
-
+                //dateData
                 dateEdit.setText(list[position].date.toString())
 
                 dialog.show()
@@ -134,7 +138,98 @@ class AdapterTodoListView(val list: List<TodoList>) : RecyclerView.Adapter<Adapt
                     btnBack.visibility = View.GONE
                     btnUpdate.visibility = View.GONE
                 }
+
+                //Date EditText
+                val calendar = Calendar.getInstance()
+                val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
+                val bulan = calendar.get(Calendar.MONTH)
+                val tahun= calendar.get(Calendar.YEAR)
+                dateEdit.setOnClickListener {
+                    val datePicker = DatePickerDialog(context, { view, year, month, dayOfMonth ->
+                        var dateFormated ="" + dayOfMonth
+                        var monthFormated = "${month+1}"
+                        if(dayOfMonth < 10){
+                            dateFormated = "0$dayOfMonth"
+                        }
+                        if(month < 9){
+                            monthFormated = "0${month+1}"
+                        }
+                        dateEdit.setText("$dateFormated-$monthFormated-$year")
+                    },tahun,bulan,tanggal)
+                    datePicker.show()
+
+                }
+                itImageCategory.text = list[position].itemCategory.toString()
+                //ImageView Category
+                val imageCategory = when(itImageCategory.text){
+                    "Studie" -> ivImageCategory.setImageResource(R.drawable.item_book)
+                    "Shop" -> ivImageCategory.setImageResource(R.drawable.item_belanja)
+                    "Food" -> ivImageCategory.setImageResource(R.drawable.item_food)
+                    "Sport" -> ivImageCategory.setImageResource(R.drawable.item_sport)
+                    "Activity" -> ivImageCategory.setImageResource(R.drawable.item_do)
+                    else -> ivImageCategory.setImageResource(R.drawable.item_other)
+                }
+
+
+
+                //RgPriority
+                val priorityChosed = when(rgPriority.checkedRadioButtonId){
+                    R.id.rbNormalEdit -> "Normal"
+                    R.id.rbMediumEdit -> "Medium"
+                    else -> "High"
+                }
+
+
+
+                //Priority Item
+                val priorityItem = when(spCategory.selectedItem.toString()){
+                    "Studie"->{
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_book_green
+                            "Medium" -> R.drawable.ic_book_blue
+                            else -> R.drawable.ic_book_red
+                        }
+                    }
+                    "Shop" ->{
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_belanja_green
+                            "Medium" -> R.drawable.ic_belanja_blue
+                            else -> R.drawable.ic_belanja_red
+                        }
+                    }
+                    "Food"-> {
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_food_green
+                            "Medium" -> R.drawable.ic_food_blue
+                            else -> R.drawable.ic_food_red
+                        }
+                    }
+                    "Sport"-> {
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_sport_green
+                            "Medium" -> R.drawable.ic_sport_blue
+                            else -> R.drawable.ic_sport_red
+                        }
+                    }
+                    "Activity"-> {
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_go_green
+                            "Medium" -> R.drawable.ic_go_blue
+                            else -> R.drawable.ic_go_red
+                        }
+                    }
+                    else -> {
+                        when(priorityChosed){
+                            "Normal" -> R.drawable.ic_other_green
+                            "Medium" -> R.drawable.ic_other_blue
+                            else -> R.drawable.ic_other_red
+                        }
+                    }
+                }
+
+
             }
+
 
 
         }

@@ -200,7 +200,7 @@ class HomeActivity : AppCompatActivity() {
                 btmSheet.apply {
                     setContentView(viewBtmSheet)
                     ivItemAddTodo.setImageResource(R.drawable.item_book)
-                    tvItemCategory.text = "Book"
+                    tvItemCategory.text = "Studie"
                     setCanceledOnTouchOutside(true)
                     show()
                 }
@@ -210,7 +210,7 @@ class HomeActivity : AppCompatActivity() {
                 btmSheet.apply {
                     setContentView(viewBtmSheet)
                     ivItemAddTodo.setImageResource(R.drawable.item_belanja)
-                    tvItemCategory.text = "Belanja"
+                    tvItemCategory.text = "Shop"
                     setCanceledOnTouchOutside(true)
                     show()
                 }
@@ -240,7 +240,7 @@ class HomeActivity : AppCompatActivity() {
                 btmSheet.apply {
                     setContentView(viewBtmSheet)
                     ivItemAddTodo.setImageResource(R.drawable.item_do)
-                    tvItemCategory.text = "Do"
+                    tvItemCategory.text = "Activity"
                     setCanceledOnTouchOutside(true)
                     show()
                 }
@@ -286,6 +286,7 @@ class HomeActivity : AppCompatActivity() {
             val title = etTitle.text.toString()
             var desc = etDesc.text.toString()
             var datePicked = etDate.text.toString()
+            var itemCategory = tvItemCategory.text.toString()
             val id = reference.push().key
             val priorityChosed = when(priority.checkedRadioButtonId){
                 R.id.rbNormal -> "Normal"
@@ -294,14 +295,14 @@ class HomeActivity : AppCompatActivity() {
             }
             val imageItem : Int
             val priorityItem = when(tvItemCategory.text){
-            "Book"->{
+            "Studie"->{
                 when(priorityChosed){
                     "Normal" -> R.drawable.ic_book_green
                     "Medium" -> R.drawable.ic_book_blue
                     else -> R.drawable.ic_book_red
                 }
             }
-            "Belanja" ->{
+            "Shop" ->{
                 when(priorityChosed){
                 "Normal" -> R.drawable.ic_belanja_green
                 "Medium" -> R.drawable.ic_belanja_blue
@@ -322,7 +323,7 @@ class HomeActivity : AppCompatActivity() {
                     else -> R.drawable.ic_sport_red
                 }
             }
-           "Do"-> {
+           "Activity"-> {
                 when(priorityChosed){
                     "Normal" -> R.drawable.ic_go_green
                     "Medium" -> R.drawable.ic_go_blue
@@ -350,7 +351,7 @@ class HomeActivity : AppCompatActivity() {
             if(title.isEmpty()){
                 etTitle.error = "Title is Required"
             }else{
-                val todoData = TodoList(id,title,desc,datePicked,priorityItem,priorityChosed,false)
+                val todoData = TodoList(id,title,desc,datePicked,priorityItem,priorityChosed,itemCategory,false)
                 loader.setTitle("Adding your todo")
                 loader.setCanceledOnTouchOutside(false)
                 loader.show()
@@ -379,9 +380,7 @@ class HomeActivity : AppCompatActivity() {
             etDate.text = null
         }
 
-        fun addTodoList(){
 
-        }
 
     }
 
