@@ -51,7 +51,6 @@ class RegistrationActivity : AppCompatActivity() {
                         loader.show()
                         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(
                             OnCompleteListener {
-
                                 if(it.isSuccessful){
                                     val intent = Intent(this@RegistrationActivity,HomeActivity :: class.java)
                                         startActivity(intent)
@@ -59,7 +58,12 @@ class RegistrationActivity : AppCompatActivity() {
                                     loader.dismiss()
                                 }else{
                                     val error = it.exception.toString()
-                                    Toast.makeText(this@RegistrationActivity,"Registration Failed $error",Toast.LENGTH_LONG).show()
+                                    if(error == "com.google.firebase.auth.FirebaseAuthInvalidCredentialsException: The email address is badly formatted."){
+                                        Toast.makeText(this@RegistrationActivity,"Format email tidak benar",Toast.LENGTH_LONG).show()
+                                    }else{
+                                        Toast.makeText(this@RegistrationActivity,error,Toast.LENGTH_LONG).show()
+                                    }
+
                                     loader.dismiss()
                                 }
 

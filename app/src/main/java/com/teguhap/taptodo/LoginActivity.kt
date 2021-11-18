@@ -57,8 +57,14 @@ class LoginActivity : AppCompatActivity() {
                                 loader.dismiss()
                             }else{
                                 val error = it.exception.toString()
-                                Toast.makeText(this@LoginActivity,"Login Failed $error",Toast.LENGTH_SHORT).show()
-                                loader.dismiss()
+                                if(error == "com.google.firebase.auth.FirebaseAuthInvalidUserException: There is no user record corresponding to this identifier. The user may have been deleted."
+                                    ||error == "com.google.firebase.auth.FirebaseAuthInvalidCredentialsException: The email address is badly formatted."){
+                                Toast.makeText(this@LoginActivity,"Username salah atau belum terdaftar",Toast.LENGTH_LONG).show()
+                                loader.dismiss()}
+                                else{
+                                    Toast.makeText(this@LoginActivity,"Password salah",Toast.LENGTH_SHORT).show()
+                                    loader.dismiss()
+                                    }
                             }
                         })
                 }

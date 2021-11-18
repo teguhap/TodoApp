@@ -31,10 +31,12 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="12dp"
-        android:elevation="10dp"
+        android:clickable="true"
         android:src="@drawable/ic_settingcircle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvUsername" />
+        app:layout_constraintTop_toTopOf="@+id/tvUsername"
+        android:contentDescription="@string/setting"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tvDate"
@@ -282,6 +284,10 @@
                         android:id="@+id/rvTodoToday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTodoMissed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
                     <TextView
                         android:id="@+id/tvTomorrow"
@@ -296,7 +302,9 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvTodoTomorrow"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="300dp"/>
+
+
 
                 </LinearLayout>
 

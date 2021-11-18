@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="14dp"
-    android:layout_height="wrap_content">
+    android:id="@+id/cl_todolist"
+    android:clickable="true"
+    android:layout_height="wrap_content"
+    android:focusable="true">
 
     <ImageView
         android:id="@+id/ivItemCategory"
@@ -23,7 +26,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="10dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Login Mobile Legendafakafkjafkjafkajfkaf dapet skin gratis"
+        android:text="Login Mobile Legend skin gratis"
         android:textColor="#7E7E7E"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/cbDone"

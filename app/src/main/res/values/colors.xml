@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="utama">#50DA1E</color>
     <color name="gray">#8F8F8F</color>
+    <color name="red">#75FF2A2A</color>
+    <color name="date_color">#C4C4C4</color>
 
 
 <!-- Gradient Color App   -->
