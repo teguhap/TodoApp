@@ -133,6 +133,7 @@
             android:text="01-01-2021"
             android:textColor="#9F9F9F"
             android:textSize="14sp" />
+
         <EditText
             android:id="@+id/etDateEdit"
             android:layout_width="match_parent"
@@ -188,7 +189,7 @@
                 android:checked="true"
                 android:fontFamily="@font/quicksand_medium"
                 android:text="@string/normal"
-                android:textColor="#7A7A7A"
+                android:textColor="#9F9F9F"
                 android:textSize="12sp" />
 
             <RadioButton
@@ -199,7 +200,7 @@
                 android:buttonTint="@color/end_utama_gradient"
                 android:fontFamily="@font/quicksand_medium"
                 android:text="@string/medium"
-                android:textColor="#7A7A7A"
+                android:textColor="#9F9F9F"
                 android:textSize="12sp" />
 
             <RadioButton
@@ -210,7 +211,7 @@
                 android:buttonTint="@color/end_utama_gradient"
                 android:fontFamily="@font/quicksand_medium"
                 android:text="@string/high"
-                android:textColor="#7A7A7A"
+                android:textColor="#9F9F9F"
                 android:textSize="12sp" />
 
         </RadioGroup>

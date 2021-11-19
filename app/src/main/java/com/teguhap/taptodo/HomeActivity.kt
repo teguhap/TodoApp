@@ -40,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
 
         val loader = ProgressDialog(this)
 
+
         //Firebase Database Connect
         mAuth = FirebaseAuth.getInstance()
         val mUser = mAuth.currentUser
@@ -103,6 +104,81 @@ class HomeActivity : AppCompatActivity() {
             loader.setTitle("Mohon Tunggu")
             loader.setCanceledOnTouchOutside(false)
             loader.show()
+            reference.removeEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        for(userTodoSnapshot in snapshot.children){
+                            val userTodo = userTodoSnapshot.getValue(TodoList::class.java)
+                            val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
+                            val bulan = calendar.get(Calendar.MONTH)
+                            var dateForDatabase = ""
+                            var monthForDatabase = ""
+                            var dateFormated2 = "$tanggal"
+                            var monthFormated2 = "${bulan+1}"
+                            for(i in 0..1){
+                                dateForDatabase += userTodo?.date?.get(i).toString()
+                            }
+                            for(i in 3..4){
+                                monthForDatabase += userTodo?.date?.get(i).toString()
+                            }
+
+
+                            if(!todoListToday.contains(userTodo)){
+                                if(tanggal < 10){
+                                    dateFormated2 = "0$tanggal"
+                                }
+                                if(bulan < 9){
+                                    monthFormated2 = "0${bulan+1}"
+                                }
+                                val dateNormal = if(dateFormated2[0]=='0'){
+                                    "$tanggal"
+                                }else{
+                                    dateFormated2
+                                }
+                                val monthNormal = if(monthFormated2[0]=='0'){
+                                    "${bulan+1}"
+                                }else{
+                                    monthFormated2
+                                }
+                                val dateNormal2 = if(dateForDatabase[0]=='0'){
+                                    "${dateForDatabase[1]}"
+                                }else{
+                                    dateForDatabase
+                                }
+                                val monthNormal2 = if(monthForDatabase[0]=='0'){
+                                    "${monthForDatabase[1]}"
+                                }else{
+                                    monthForDatabase
+                                }
+
+                                if(userTodo?.date =="$dateFormated2-$monthFormated2-$year"){
+                                    todoListToday.add(userTodo)
+                                }else if(dateNormal2.toInt() > dateNormal.toInt() && monthNormal2.toInt() == monthNormal.toInt() || dateNormal2.toInt() < dateNormal.toInt() && monthNormal2.toInt() > monthNormal.toInt()
+                                    || dateNormal2.toInt() > dateNormal.toInt() && monthNormal2.toInt() > monthNormal.toInt()) {
+                                    if(!todoListTomorrow.contains(userTodo)){
+                                        todoListTomorrow.add(userTodo!!)}
+                                }else{
+                                    if(!todoListMissed.contains(userTodo)){
+                                        todoListMissed.add(userTodo!!)}
+                                }
+
+                            }
+
+                        }
+
+                    }
+                    rvTodoToday.adapter = adapterToday
+                    rvTodoTomorrow.adapter = AdapterTodoListView(todoListTomorrow)
+                    rvTodoMissed.adapter = AdapterTodoMissed(todoListMissed)
+                    loader.dismiss()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+
+            })
             reference.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
@@ -177,15 +253,19 @@ class HomeActivity : AppCompatActivity() {
                 }
             })
 
+            //PopUp Menu
             btnSetting.setOnClickListener {
                 val popUpMenu = PopupMenu(this@HomeActivity,btnSetting)
                 popUpMenu.menuInflater.inflate(R.menu.pop_up_setting,popUpMenu.menu)
                 popUpMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener{
                     override fun onMenuItemClick(item: MenuItem?): Boolean {
                         when(item!!.itemId){
-                            R.id.itLogout -> Intent(this@HomeActivity,LoginActivity::class.java).also {
+                            R.id.itLogout ->
+                            {  mAuth.signOut()
+                                Intent(this@HomeActivity,LoginActivity::class.java).also {
                                 startActivity(it)
                                 finish()
+                             }
                             }
                         }
                         return true

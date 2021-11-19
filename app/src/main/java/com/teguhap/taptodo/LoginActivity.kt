@@ -24,7 +24,17 @@ class LoginActivity : AppCompatActivity() {
         val loader = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
         window.statusBarColor = getColor(R.color.start_utama_gradient)
+        val currentUser = mAuth.currentUser
 
+
+        if(currentUser!=null){
+            Intent(this,HomeActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(it)
+                finish()
+            }
+        }
 
         binding.apply {
             tvRegister.setOnClickListener{
